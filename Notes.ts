@@ -25,9 +25,16 @@ function add(a: number, b: number): void {
 	console.log(a + b);
 }
 
+// ?: mark the parameter for the function to be optional
 function pokemon(name: string, type1: string, type2?: string): void {
 	console.log(`${name} is ${type1} type${type2 ? `, also ${type2} type` : ""}.`);
 }
 
 pokemon("greninja", "water", "dark");
 pokemon("pikachu", "electric");
+
+// we can set default parameters
+function time(month: string, day: number, year: number = 2026): void {
+	console.log(`Today is ${month} ${day}, ${year}`);
+}
+time("March", 6);

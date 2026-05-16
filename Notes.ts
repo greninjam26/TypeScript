@@ -1,4 +1,8 @@
 // TypeScript have different types that need to be added to variables
+// **********************************************
+// when the type os obvious, let typescript infer the types
+// no need to define the type for every little thing
+// **********************************************
 let age: number = 19;
 const username: string = "Ash-Greninja";
 console.log(age);
@@ -11,8 +15,21 @@ let num2: number = 2;
 let num3: number = 3;
 
 // there is a "any" type, basicly we can do anything with it, but usually don't use it
+// any is not a type
+// IT TURN TS OFF
 let i: any = 1;
 i = "s";
+// if we don't know the type of the variable
+// then we can use this
+// "unknown" allows a variable to change types
+let ii: unknown = 1;
+console.log(ii);
+ii = "s";
+console.log(ii);
+
+// we can check the type of a variable with "typeof"
+console.log(typeof num1);
+console.log(typeof ii);
 
 // functions
 // this type of function have a return type
@@ -89,4 +106,3 @@ console.log(s);
 type Point = [number, number];
 let point: Point = [10, 20];
 console.log(point);
-

@@ -64,4 +64,29 @@ interface User {
 }
 let Al: Admin = { name: "Al", age: 50, permissions: ["nothing"], time: 10 };
 console.log(Al);
+//////////////////////////////
+// Type
+//////////////////////////////
+// unlike interface, we can add more attributes after creation
+type Uuser = { name: string; age: number };
+// but we can do things that is similar to extands
+type Aadim = Uuser & { permission: string[] };
+// This is more flexiable than interface
+// we can do things like these
+// this allows us to define types that can have multiple premitive types
+type ID = string | number;
+let id: ID = 1243;
+console.log(id);
+id = "sdfefwe";
+console.log(id);
+// we can also create types that limit the possible value of the variable
+type Status = "loading" | "success" | "error";
+let s: Status = "loading";
+console.log(s);
+s = "error";
+console.log(s);
+// we can also limit the number of elements in an array
+type Point = [number, number];
+let point: Point = [10, 20];
+console.log(point);
 

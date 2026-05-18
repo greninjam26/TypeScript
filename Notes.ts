@@ -169,5 +169,22 @@
 	};
     // then use it {name, age, isAdmin=false}: UserCardProps
 
-    
+    // for states, TS can often infer it
+    // even if it can, we still should state the type to make the intent of the variable clear
+    // if we want to we can set the type like this
+    // this makes the type of user start as null, then change to User
+        // const [user, setUser] = useState<User | null>(null);
+    // for arrays it can start as [] then have values
+        // const [users, setUsers] = useState<User[]>([]);
+    // so unlike delaring type for variables, we need to add the type for the state after useState with <>
+    //////
+    // with the type that limite the possible variable values, we can use TS to make limit the options and elimimate possible error
+    //////
+
+    /***********/
+    // React events have their own special types
+    /***********/
+    // React.ChangeEvent<HTMLInputElement>
+    // React.FormEvent<HTMLFormElement>
+    // React.MouseEvent<HTMLButtonElement>
 }

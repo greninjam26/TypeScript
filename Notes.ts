@@ -106,3 +106,50 @@ console.log(s);
 type Point = [number, number];
 let point: Point = [10, 20];
 console.log(point);
+
+// Generics let function use many different types for both input and output
+// THIS is similar to "any" but the code will not crush, it will only show up as errors
+//////
+// this is useful when we need to process the the input, but the input can be many different types
+//////
+// T is just a placeholder for a type, so T can only represent one type at once
+// if we need placeholder for different types, we need other names
+// SO "T" is just a name we can call it many different things
+function first<T>(items: T[]): T {
+	return items[0];
+}
+const n = first([1, 2, 3]); // number
+const ss = first(["a", "b"]); // string
+const sss = first(["a", "b"]); // string
+console.log(n, ss);
+
+// we can also set restriction on on the T(placeholder)
+// like T have to have a length with a number value
+function printLength<T extends { length: number }>(value: T): void {
+	console.log(value.length);
+}
+printLength("hello"); // okay, string has length
+printLength([1, 2, 3]); // okay, array has length
+printLength({ length: 10 }); // okay
+// printLength(123); // error, number does not have length
+
+// we can also use it when creating types
+type Box<T> = {
+	value: T;
+};
+const numberBox: Box<number> = {
+	value: 123,
+};
+// this type of thing can be really helpful with api responses
+const userBox: Box<User> = {
+	value: { name: "Jordan", age: 29, time: 10 },
+};
+console.log(numberBox);
+console.log(userBox);
+
+//****************************************//
+// "any" VS "unknown" VS generic
+//****************************************//
+// "any": TS trust the programmer, whenever happens is none of TS's bussiness
+// "unknown": the programmer don't know the type. TS should becareful and check the types and report errors. Programmer also need to check the type before using the variable
+// genertic: we also don't know the type, but we need a placeholder to represent all the possible locations the type is needed. In other words, we need to remember the type. 

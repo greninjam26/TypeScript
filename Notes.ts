@@ -187,4 +187,7 @@
     // React.ChangeEvent<HTMLInputElement>
     // React.FormEvent<HTMLFormElement>
     // React.MouseEvent<HTMLButtonElement>
+    /***********/
+    // If you hover over event in your editor, TypeScript will show its type.
+    /***********/
 }

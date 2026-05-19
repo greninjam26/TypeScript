@@ -168,6 +168,14 @@
 		isAdmin?: boolean;
 	};
     // then use it {name, age, isAdmin=false}: UserCardProps
+    //////////
+    // Child Props
+    //////////
+    // the basic type is React.ReactNode
+    // this types can represent most things React can render, so most component fit this type
+    // we could also use JSX.Element
+    // but this only works with JSX, but React.ReactNode can have other data type, like string and number
+
 
     // for states, TS can often infer it
     // even if it can, we still should state the type to make the intent of the variable clear

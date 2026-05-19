@@ -4,6 +4,12 @@
 	// **********************************************
 	// when the type os obvious, let typescript infer the types
 	// no need to define the type for every little thing
+    /**** */
+    // if we set a variable with a type, but we assign a await to the variable
+    // the TS will NOT catch the error if the data returned does not match the type
+    // SO when fetching from the API, if we assigned a type to that variable it is like a promise to TS that the values returned from the API will be that type
+    // REASON: There is no way for TS to known the type of the data that comes from the API later
+    /**** */
 	// **********************************************
 	let age: number = 19;
 	const username: string = "Ash-Greninja";
@@ -175,7 +181,6 @@
     // this types can represent most things React can render, so most component fit this type
     // we could also use JSX.Element
     // but this only works with JSX, but React.ReactNode can have other data type, like string and number
-
 
     // for states, TS can often infer it
     // even if it can, we still should state the type to make the intent of the variable clear
